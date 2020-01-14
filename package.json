@@ -1,0 +1,20 @@
+{
+        "name": "nch",
+        "version": "1.0.0",
+        "description": "",
+        "scripts": {
+                "clean": "rm -rf dist",
+                "build": "npm run clean && webpack",
+                "test": "npm run build  && cp dist/nchsdk.js  demo/nchsdk.js"
+        },
+        "keywords": [],
+        "author": "NetCloth",
+        "license": "ISC",
+        "devDependencies": {
+                "webpack": "^4.20.2",
+                "webpack-cli": "^3.1.2"
+        },
+        "dependencies": {
+                "promise": "^8.0.3"
+        }
+}
