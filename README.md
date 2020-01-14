@@ -1,4 +1,3 @@
 
 # native api (beta)
-
-func authLogin(params: Object) -> Void
+func authLogin(icon, name, originText, signature) -> Void
