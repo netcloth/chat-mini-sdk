@@ -19,7 +19,7 @@ var auth = {
          *  result: { status : 0 , result : "" }
         **/
         login: function (icon, name, publicKey, timestamp, signature) {
-                console.log('login')
+                console.log('login 1')
                 return new Promise(function (resolve, reject) {
                         var callback = function (res) {
                                 if (res.status = 0) {
@@ -34,10 +34,16 @@ var auth = {
                                 window.nchPlugin.authLogin(icon, name, publicKey, timestamp, signature, callname)
                         }
                         else {
-                                var params = {
-                                        icon, name, originText, signature
-                                }
-                                Bridge.sendRequest('authLogin', params, callback)
+                                console.log('login 2 ')
+                                var o = new Object()
+                                o.icon = icon
+                                o.name = name
+                                o.publicKey = publicKey
+                                o.timestamp = timestamp
+                                o.signature = signature
+
+                                console.log('login 2 ' + o)
+                                Bridge.sendRequest('authLogin', o, callback)
                         }
                 });
         },

@@ -38,6 +38,7 @@ var bridge = {
 
         //after sendRequest , if have rsp must call this avoid js memeroy leak
         rspCallBack: function (callbackName, result) {
+                console.log("test 6 " + callbackName)
                 var f = this._callbacks[callbackName]
                 f(result)
                 delete (this._callbacks[callbackName])
