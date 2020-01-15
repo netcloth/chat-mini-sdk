@@ -1,7 +1,6 @@
 var Promise = require('promise')
 var Bridge = require('../../bridge/bridge')
 
-
 var auth = {
 
         testInterface: function (params) {
@@ -20,7 +19,7 @@ var auth = {
                                 console.login("test 3")
                                 Bridge.sendRequest('testInterface', params, callback)
                         }
-                });    
+                });
         },
 
         /** publicKey 应用公钥
@@ -29,7 +28,7 @@ var auth = {
          *  建议 signature 使用服务端签名（ecdsa） ，请勿将私钥写在网页中！！
         **/
         login: function (icon, name, publicKey, timestamp, signature) {
-
+                console.log('login')
                 return new Promise(function (resolve, reject) {
                         var callback = function (res) {
                                 resolve(res)
@@ -37,7 +36,7 @@ var auth = {
                         // android
                         if (window.nchPlugin) {
                                 var callname = Bridge._dealCallback(callback)
-                                window.nchPlugin.authLogin(icon, name,  publicKey, timestamp, signature, callname)
+                                window.nchPlugin.authLogin(icon, name, publicKey, timestamp, signature, callname)
                         }
                         else {
                                 var params = {

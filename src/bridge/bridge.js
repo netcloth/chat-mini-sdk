@@ -8,15 +8,15 @@ var bridge = {
                 return '_callback_' + new Date().getTime() + ramdom
         },
 
-        _dealCallback:function (callback) {
+        _dealCallback: function (callback) {
                 var callbackName = ""
                 if (typeof callback === "function") {
                         callbackName = this._getCallbackName()
-                        this._callbacks[callname] = callbackName
+                        this._callbacks[callbackName] = callback
                 }
                 return callbackName
         },
-        
+
         isBridgeOk: function () {
                 return !!(window.nchPlugin || (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.bridgeOk))
         },
@@ -37,10 +37,10 @@ var bridge = {
         },
 
         //after sendRequest , if have rsp must call this avoid js memeroy leak
-        rspCallBack: function(callbackName, result) {
+        rspCallBack: function (callbackName, result) {
                 var f = this._callbacks[callbackName]
                 f(result)
-                delete(this._callbacks[callbackName])
+                delete (this._callbacks[callbackName])
         },
 
 

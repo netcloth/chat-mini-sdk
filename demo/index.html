@@ -23,19 +23,17 @@
         <script>
                 import("./nchsdk.js")
                 function login() {
-                        console.log(nchsdk)
-                        console.log(window.nchsdk)
                         //(icon, name, originText, signature) 
                         nchsdk.auth.login("http://www.icon.com","百度","123456","123","123456")
                         .then(function(res){
-                                console.login("callback" + res)
+                                console.log("callback" + res)
                         })
                 }
 
                 function test() {
                         console.login("test 1")
                         nchsdk.auth.testInterface("canshu").then(function(res){
-                                console.login("test callback" + res)
+                                console.log("test callback" + res)
                         })
                 }
         </script>
