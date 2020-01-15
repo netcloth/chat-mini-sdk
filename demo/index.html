@@ -6,12 +6,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>NCH API Demo</title>
+
+        <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
 
+        <div class="container">
+                <button class="item" onclick="login()"> 授权登陆 </button>
+                <button class="item" onclick="test()"> 测试接口 </button>
+        </div>
 
-        <button onclick="login()"> 授权登陆 </button>
+   
 
         <!-- <script type="text/javascript" src="./nchsdk.js"></script> -->
         <script>
@@ -20,9 +26,15 @@
                         console.log(nchsdk)
                         console.log(window.nchsdk)
                         //(icon, name, originText, signature) 
-                        nchsdk.auth.login("http://www.icon.com","百度","123456","123456")
+                        nchsdk.auth.login("http://www.icon.com","百度","123456","123","123456")
                         .then(function(res){
                                 console.login("callback" + res)
+                        })
+                }
+
+                function test() {
+                        nchsdk.auth.testInterface("canshu").then(function(res){
+                                console.login("test callback" + res)
                         })
                 }
         </script>

@@ -1,0 +1,15 @@
+body {
+        text-align: center;
+}
+
+.container {
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+        margin: 0 auto;
+}
+
+.item {
+        height: 45px;
+        margin:  10px;
+}

@@ -4,8 +4,24 @@ var Bridge = require('../../bridge/bridge')
 
 var auth = {
 
+        testInterface: function (params) {
+                return new Promise(function (resolve, reject) {
+                        var callback = function (res) {
+                                resolve(res)
+                        }
+                        // android
+                        if (window.nchPlugin) {
+                                var callname = Bridge._dealCallback(callback)
+                                window.nchPlugin.testInterface(params, callname)
+                        }
+                        else {
+                                Bridge.sendRequest('testInterface', params, callback)
+                        }
+                });    
+        },
+
         /** publicKey 应用公钥
-         *  timestamp 时间戳（客服端校验前后1分钟）
+         *  timestamp 时间戳（客服端将校验，一分钟内时间戳有效）
          *  signature 对publicKey+timestamp 签名
          *  建议 signature 使用服务端签名（ecdsa） ，请勿将私钥写在网页中！！
         **/
