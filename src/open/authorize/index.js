@@ -5,16 +5,19 @@ var Bridge = require('../../bridge/bridge')
 var auth = {
 
         testInterface: function (params) {
+                console.login("test 2")
                 return new Promise(function (resolve, reject) {
                         var callback = function (res) {
                                 resolve(res)
                         }
                         // android
                         if (window.nchPlugin) {
+                                console.login("test 3_1")
                                 var callname = Bridge._dealCallback(callback)
                                 window.nchPlugin.testInterface(params, callname)
                         }
                         else {
+                                console.login("test 3")
                                 Bridge.sendRequest('testInterface', params, callback)
                         }
                 });    

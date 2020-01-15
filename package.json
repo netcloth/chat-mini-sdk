@@ -6,7 +6,7 @@
                 "clean": "rm -rf dist",
                 "build": "npm run clean && webpack",
                 "test": "npm run build  && cp dist/nchsdk.js  demo/nchsdk.js",
-                "hotdev": "npm run test && webpack-dev-server --open"
+                "hotdev": "npm run test && webpack-dev-server --open --useLocalIp"
         },
         "keywords": [],
         "author": "NetCloth",
