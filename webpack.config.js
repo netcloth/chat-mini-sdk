@@ -5,5 +5,8 @@ module.exports = {
   output: {
     filename: 'nchsdk.js',
     path: path.resolve(__dirname, 'dist')
-  }
+  },
+  devServer: {
+    contentBase: './demo'
+  },
 };
