@@ -8,7 +8,8 @@ var auth = {
                 1: "unknow error",
                 2: "invalid signature",
                 3: "invalid timestamp",
-                4: "invalid publicKey"
+                4: "invalid publicKey",
+                5: "user rejected",
         },
 
         /** 
