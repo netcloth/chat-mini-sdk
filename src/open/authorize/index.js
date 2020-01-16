@@ -19,13 +19,14 @@ var auth = {
          *  result: { status : 0 , result : "" }
         **/
         login: function (icon, name, publicKey, timestamp, signature) {
-                console.log('login 1')
                 return new Promise(function (resolve, reject) {
                         var callback = function (res) {
-                                if (res.status = 0) {
-                                        resolve(res)
+                                console.log(res)
+                                var result = JSON.parse(res)
+                                if (result.status == 0) {
+                                        resolve(result)
                                 } else {
-                                        reject(res)
+                                        reject(result)
                                 }
                         }
                         // android

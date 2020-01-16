@@ -26,13 +26,15 @@
                         //(icon, name, originText, signature) 
                         nchsdk.auth.login("https://www.netcloth.org/favicon.ico", "NetCloth", "123456", "123", "123456")
                                 .then(function (res) {
-                                        console.log("callback" + res)
+                                        alert(res.result)
+                                }).catch(function (e) {
+                                        alert(e.status)
                                 })
                 }
 
                 function test() {
                         console.log("test 1")
-                        nchsdk.auth.testInterface("canshu").then(function(res){
+                        nchsdk.auth.testInterface("canshu").then(function (res) {
                                 console.log("test callback " + res)
                         })
                 }
