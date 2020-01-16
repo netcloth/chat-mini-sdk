@@ -23,10 +23,16 @@
         <script>
                 import("./nchsdk.js")
                 function login() {
+                        // private key 53644179fa2e2d1a8acf8b2b1d7c17082f0d176d8bc6e2f04b953d89e6853455
                         //(icon, name, originText, signature) 
-                        nchsdk.auth.login("https://www.netcloth.org/favicon.ico", "NetCloth", "123456", "123", "123456")
+                        nchsdk.auth.login(
+                                "https://www.netcloth.org/favicon.ico",
+                                "NetCloth",
+                                "0425c4d73e92dfade7d83774f37dc0f9948882ac1c682233f617ba562dd4713b019dfa50ab7e0c90b1de2634ebf44ba5b746880a1cf542725d5d154b980f46c752",
+                                "1579144095933",
+                                "6780846d41e5d74a1d74b8926784b5b55f5372ad74fe8e07cbae261b199ba40035d4392817b07008016684ab3306732bd5bf65b81ac5527a37490f43e596b038")
                                 .then(function (res) {
-                                        alert(res.result)
+                                        alert(JSON.stringify(res.result))
                                 }).catch(function (e) {
                                         alert(e.status)
                                 })
