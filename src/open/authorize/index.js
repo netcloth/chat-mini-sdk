@@ -18,13 +18,14 @@ var auth = {
          *  signature 对 timestamp 进行 Sha256 后签名的十六进制结果
          *  建议 signature 使用服务端签名（ecdsa） ，请勿将私钥写在网页中！！
          *  {"result": {"publicKey": "048c8a58291eb9ad6df6d7a80e3913fa126d991ba5e57d62403b123e87a09981bdcfcdfbb5029bc8dbe8828af2fa483cdc4b0f890ba81b4ce698b01431e17fe572",
-                        "signature": "622b052254f3ee14373b43a8fe2f2e646043aff117a10004a2e19e2addad3b4f7d17eea37a1568824acf2c1980609764d9096d63bd0ca68f56a233403ff3dc2b",
-                        "timestamp": "1579155698774"},
+                        "signature": "f9fa0f8f4e7feae4304ac387814a8882b455df7012410903917210c21c05b15d1c495e658f26722fe38689622fc7f1f61d33ddb1270d043ecb7d110459f62477",
+                        "timestamp": "1579245008596"},
                 "status": 0}
         **/
         login: function (icon, name, publicKey, timestamp, signature) {
                 return new Promise(function (resolve, reject) {
                         var callback = function (res) {
+                                console.log(res)
                                 var result = JSON.parse(res)
                                 if (result.status == 0) {
                                         resolve(result)
