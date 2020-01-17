@@ -14,7 +14,7 @@ var auth = {
         /** 
          *  publicKey 应用公钥
          *  timestamp 时间戳（客服端将校验，一分钟内时间戳有效）
-         *  signature 对 timestamp 进行 Sha3 后签名的十六进制结果
+         *  signature 对 timestamp 进行 Sha256 后签名的十六进制结果
          *  建议 signature 使用服务端签名（ecdsa） ，请勿将私钥写在网页中！！
          *  {"result": {"publicKey": "048c8a58291eb9ad6df6d7a80e3913fa126d991ba5e57d62403b123e87a09981bdcfcdfbb5029bc8dbe8828af2fa483cdc4b0f890ba81b4ce698b01431e17fe572",
                         "signature": "622b052254f3ee14373b43a8fe2f2e646043aff117a10004a2e19e2addad3b4f7d17eea37a1568824acf2c1980609764d9096d63bd0ca68f56a233403ff3dc2b",
