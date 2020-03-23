@@ -26,7 +26,55 @@ var env = {
                 });
         },
 
-       
+        setProxy: function (host, port) {
+                return new Promise(function (resolve, reject) {
+                        var callback = function (res) {
+                                console.log(res)
+                                var result = JSON.parse(res)
+                                if (result.status == 0) {
+                                        resolve(result)
+                                } else {
+                                        reject(result)
+                                }
+                        }
+                        // android
+                        if (window.nchPlugin) {
+                                var callname = Bridge._dealCallback(callback)
+                                window.nchPlugin.setProxy(host, port, callname)
+                        }
+                        else {
+                                var o = new Object()
+                                o.host = host
+                                o.port = port
+                                Bridge.sendRequest('setProxy', o, callback)
+                        }
+                });
+        },
+
+        revertProxy: function () {
+                return new Promise(function (resolve, reject) {
+                        var callback = function (res) {
+                                console.log(res)
+                                var result = JSON.parse(res)
+                                if (result.status == 0) {
+                                        resolve(result)
+                                } else {
+                                        reject(result)
+                                }
+                        }
+                        // android
+                        if (window.nchPlugin) {
+                                var callname = Bridge._dealCallback(callback)
+                                window.nchPlugin.revertProxy(callname)
+                        }
+                        else {
+                                var o = new Object()
+                                o.host = host
+                                o.port = port
+                                Bridge.sendRequest('setProxy', o, callback)
+                        }
+                });
+        }
 }
 
 module.exports = env

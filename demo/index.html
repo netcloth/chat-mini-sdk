@@ -15,6 +15,10 @@
         <div class="container">
                 <button class="item" onclick="login()"> 授权登陆 </button>
                 <button class="item" onclick="test()"> 测试接口 </button>
+                <button class="item" onclick="getSystemInfo()"> 获取语言 </button>
+                <button class="item" onclick="setProxy()"> 打开代理 </button>
+                <button class="item" onclick="revertProxy()"> 关闭代理 </button>
+                <button class="item" onclick="gotoGoogle()">google</button>
         </div>
 
 
@@ -43,6 +47,32 @@
                         nchsdk.auth.testInterface("canshu").then(function (res) {
                                 console.log("test callback " + res)
                         })
+                }
+                function getSystemInfo() {
+                        nchsdk.env.getSystemInfo().then(function (res) {
+                                alert(JSON.stringify(res.result))
+                        }).catch(function (e) {
+                                alert(e.status)
+                        })
+                }
+                function setProxy() {
+                        console.log("setProxy")
+                        nchsdk.env.setProxy("47.104.245.170", 8848).then(function (res) {
+                                alert(JSON.stringify(res))
+                        }).catch(function (e) {
+                                alert(e.status)
+                        })
+                }
+                function revertProxy() {
+                        console.log("revertProxy")
+                        nchsdk.env.setProxy().then(function (res) {
+                                alert(JSON.stringify(res))
+                        }).catch(function (e) {
+                                alert(e.status)
+                        })
+                }
+                function gotoGoogle() {
+                        window.location = "https://google.com"
                 }
         </script>
 
