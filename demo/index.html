@@ -19,13 +19,14 @@
                 <button class="item" onclick="setProxy()"> 打开代理 </button>
                 <button class="item" onclick="revertProxy()"> 关闭代理 </button>
                 <button class="item" onclick="gotoGoogle()">google</button>
+                <button class="item" onclick="joinGroup()">加入群聊</button>
         </div>
 
 
 
-        <!-- <script type="text/javascript" src="./nchsdk.js"></script> -->
+        <script type="text/javascript" src="./nchsdk.js"></script>
         <script>
-                import("./nchsdk.js")
+                // import("./nchsdk.js")
                 function login() {
                         // private key 53644179fa2e2d1a8acf8b2b1d7c17082f0d176d8bc6e2f04b953d89e6853455
                         //(icon, name, originText, signature) 
@@ -73,6 +74,13 @@
                 }
                 function gotoGoogle() {
                         window.location = "https://google.com"
+                }
+                function joinGroup(){
+                        nchsdk.chat.joinGroup("0439fa1551b4dea9cb0ae8691795c0f378728dcd4469a5708ad8bc61b89a16a91239570ef0b06a9c59940d195c11978db2c396fbc9555a7fb1708835739e39dcb7").then(function (res) {
+                                alert(JSON.stringify(res))
+                        }).catch(function (e) {
+                                alert(e.status)
+                        })
                 }
         </script>
 
