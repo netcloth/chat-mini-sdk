@@ -65,7 +65,7 @@
                 }
                 function revertProxy() {
                         console.log("revertProxy")
-                        nchsdk.env.setProxy().then(function (res) {
+                        nchsdk.env.revertProxy().then(function (res) {
                                 alert(JSON.stringify(res))
                         }).catch(function (e) {
                                 alert(e.status)

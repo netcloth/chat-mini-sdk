@@ -3,6 +3,13 @@ var Bridge = require('../../bridge/bridge')
 
 var env = {
 
+        envStatus: {
+                0: "OK",
+                1: "unknow error",
+                2: "set proxy failed",
+                3: "user reject to set proxy"
+        },
+
         getSystemInfo: function () {
                 return new Promise(function (resolve, reject) {
                         var callback = function (res) {
