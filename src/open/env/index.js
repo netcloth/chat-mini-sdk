@@ -7,7 +7,8 @@ var env = {
                 0: "OK",
                 1: "unknow error",
                 2: "set proxy failed",
-                3: "user reject to set proxy"
+                3: "user reject to set proxy",
+                4: "no proxy"
         },
 
         getSystemInfo: function () {
@@ -33,6 +34,7 @@ var env = {
                 });
         },
 
+        // {"result":{"host":"47.104.245.170","port":"8848"},"status":0}
         setProxy: function (host, port) {
                 return new Promise(function (resolve, reject) {
                         var callback = function (res) {
@@ -79,6 +81,29 @@ var env = {
                                 o.host = host
                                 o.port = port
                                 Bridge.sendRequest('setProxy', o, callback)
+                        }
+                });
+        },
+
+        getProxy: function () {
+                return new Promise(function (resolve, reject) {
+                        var callback = function (res) {
+                                console.log(res)
+                                var result = JSON.parse(res)
+                                if (result.status == 0) {
+                                        resolve(result)
+                                } else {
+                                        reject(result)
+                                }
+                        }
+                        // android
+                        if (window.nchPlugin) {
+                                var callname = Bridge._dealCallback(callback)
+                                window.nchPlugin.getProxy(callname)
+                        }
+                        else {
+                                var o = ""
+                                Bridge.sendRequest('getProxy', o, callback)
                         }
                 });
         }

@@ -18,6 +18,7 @@
                 <button class="item" onclick="getSystemInfo()"> 获取语言 </button>
                 <button class="item" onclick="setProxy()"> 打开代理 </button>
                 <button class="item" onclick="revertProxy()"> 关闭代理 </button>
+                <button class="item" onclick="getProxy()">获取代理</button>
                 <button class="item" onclick="gotoGoogle()">google</button>
                 <button class="item" onclick="joinGroup()">加入群聊</button>
         </div>
@@ -72,10 +73,17 @@
                                 alert(e.status)
                         })
                 }
+                function getProxy() {
+                        nchsdk.env.getProxy().then(function (res) {
+                                alert(JSON.stringify(res))
+                        }).catch(function (e) {
+                                alert(e.status)
+                        })
+                }
                 function gotoGoogle() {
                         window.location = "https://google.com"
                 }
-                function joinGroup(){
+                function joinGroup() {
                         nchsdk.chat.joinGroup("0439fa1551b4dea9cb0ae8691795c0f378728dcd4469a5708ad8bc61b89a16a91239570ef0b06a9c59940d195c11978db2c396fbc9555a7fb1708835739e39dcb7").then(function (res) {
                                 alert(JSON.stringify(res))
                         }).catch(function (e) {

@@ -7,7 +7,7 @@ var chat = {
         1: "unknow error",
         2: "invalid group id",
         3: "group is dismissed",
-        4:"you already in group"
+        4: "you already in group"
     },
     joinGroup: function (groupID) {
         return new Promise(function (resolve, reject) {
