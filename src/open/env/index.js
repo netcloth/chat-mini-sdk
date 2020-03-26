@@ -77,10 +77,8 @@ var env = {
                                 window.nchPlugin.revertProxy(callname)
                         }
                         else {
-                                var o = new Object()
-                                o.host = host
-                                o.port = port
-                                Bridge.sendRequest('setProxy', o, callback)
+                                var o = ""
+                                Bridge.sendRequest('revertProxy', o, callback)
                         }
                 });
         },
