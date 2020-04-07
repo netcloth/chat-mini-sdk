@@ -59,7 +59,7 @@
                 }
                 function setProxy() {
                         console.log("setProxy")
-                        nchsdk.env.setProxy("47.104.245.170", 8848).then(function (res) {
+                        nchsdk.env.setProxy("127.0.0.1", 8080).then(function (res) {
                                 alert(JSON.stringify(res))
                         }).catch(function (e) {
                                 alert(e.status)
