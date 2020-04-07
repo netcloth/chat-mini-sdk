@@ -28,7 +28,7 @@ var chat = {
             else {
                 var o = new Object()
                 o.groupID = groupID
-                Bridge.sendRequest('getSystemInfo', o, callback)
+                Bridge.sendRequest('joinGroup', o, callback)
             }
         });
     }
